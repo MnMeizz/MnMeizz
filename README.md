@@ -1,10 +1,14 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=24&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&repeat=true&width=600&height=45&lines=Hello%2C+I'm+MnMeizz;Welcome+to+my+GitHub+profile;Building+and+learning+every+day" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=24&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&repeat=true&width=700&height=45&lines=Hello%2C+I'm+MnMeizz;Game+Developer+in+progress;Creating+worlds+with+code+and+art" alt="Typing SVG" />
 
 <br />
 
-<img src="https://skillicons.dev/icons?i=python,js,ts,react,nodejs,html,css,git,github,docker&perline=10" alt="Tech stack" />
+<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps&perline=10" alt="Game development tech stack" />
+
+<br />
+
+<img src="https://img.shields.io/badge/Codex-000000?style=flat-square&logo=openai&logoColor=white" alt="Codex" />
 
 <br /><br />
 
@@ -16,8 +20,9 @@
 ## About me
 
 - 👋 Hi, I'm **MnMeizz**.
-- 🌱 Exploring software development and open source.
-- 💡 Interested in building useful, reliable projects.
+- 🎮 Learning game development with **C#**, **Unity**, and **Unreal Engine**.
+- 🧩 Exploring programming, 3D art, and interactive world-building.
+- 🛠️ Using Blender, Premiere Pro, Photoshop, and Codex in my creative workflow.
 - 📫 Feel free to explore my repositories and connect with me.
 
 ## Contribution activity
