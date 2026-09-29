@@ -23,10 +23,12 @@ jobs:
           set -euo pipefail
 
           relation_json="$(curl --fail --silent --show-error --location \
-            --user-agent "Mozilla/5.0" \
+            --retry 3 --user-agent "Mozilla/5.0" \
+            --referer "https://space.bilibili.com/${BILIBILI_UID}" \
             "https://api.bilibili.com/x/relation/stat?vmid=${BILIBILI_UID}")"
           archive_json="$(curl --fail --silent --show-error --location \
-            --user-agent "Mozilla/5.0" \
+            --retry 3 --user-agent "Mozilla/5.0" \
+            --referer "https://space.bilibili.com/${BILIBILI_UID}" \
             "https://api.bilibili.com/x/space/arc/search?mid=${BILIBILI_UID}&pn=1&ps=100&order=pubdate&jsonp=jsonp")"
 
           follower_count="$(jq -r '.data.follower // 0' <<< "$relation_json")"
