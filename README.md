@@ -6,10 +6,11 @@
 
 <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/tech-stack.svg" alt="Game development and creative tech stack" width="100%" />
 
-<br /><br />
+<br />
 
-<a href="https://github.com/MnMeizz"><img src="https://img.shields.io/github/followers/MnMeizz?label=Followers&style=flat-square&color=58A6FF" alt="GitHub followers" /></a>
-<a href="https://github.com/MnMeizz?tab=repositories"><img src="https://img.shields.io/github/stars/MnMeizz?affiliations=OWNER&style=flat-square&color=58A6FF" alt="GitHub stars" /></a>
+<a href="https://space.bilibili.com/282601111">
+  <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/bilibili-stats.svg" alt="MnMeizz Bilibili statistics" width="680" />
+</a>
 
 </div>
 
@@ -33,14 +34,6 @@
     </td>
   </tr>
 </table>
-
-## Bilibili
-
-<div align="center">
-  <a href="https://space.bilibili.com/282601111">
-    <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/bilibili-stats.svg" alt="MnMeizz Bilibili statistics" width="680" />
-  </a>
-</div>
 
 ## Contribution activity
 
