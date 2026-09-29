@@ -83,22 +83,25 @@ jobs:
           video_views="$(jq -r '.views' bilibili-data.json)"
 
           cat > bilibili-stats.svg <<EOF
-          <svg xmlns="http://www.w3.org/2000/svg" width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="Bilibili statistics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="680" height="170" viewBox="0 0 680 170" role="img" aria-label="Bilibili statistics">
             <defs>
               <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
                 <stop stop-color="#171b2b" />
                 <stop offset="1" stop-color="#242b4a" />
               </linearGradient>
+              <clipPath id="avatarClip"><circle cx="82" cy="85" r="50" /></clipPath>
             </defs>
-            <rect width="520" height="150" rx="14" fill="url(#bg)" />
-            <text x="28" y="38" fill="#79d9ff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Bilibili Stats</text>
-            <text x="28" y="68" fill="#b8c1d9" font-family="Arial,sans-serif" font-size="15">墨梅MnMei</text>
-            <text x="28" y="112" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">${follower_count}</text>
-            <text x="28" y="134" fill="#9da9c7" font-family="Arial,sans-serif" font-size="13">Followers</text>
-            <text x="285" y="112" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">${video_views}</text>
-            <text x="285" y="134" fill="#9da9c7" font-family="Arial,sans-serif" font-size="13">Video views</text>
-            <circle cx="474" cy="38" r="10" fill="#79d9ff" opacity=".9" />
-            <circle cx="489" cy="38" r="10" fill="#ff83b8" opacity=".9" />
+            <rect width="680" height="170" rx="14" fill="url(#bg)" />
+            <image href="https://i0.hdslb.com/bfs/face/9d38531eb2b47cf35c08eb75167571ea370e22e8.jpg@128w_128h_1c_1s.webp" x="32" y="35" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />
+            <circle cx="82" cy="85" r="52" fill="none" stroke="#79d9ff" stroke-width="4" />
+            <text x="160" y="42" fill="#79d9ff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Bilibili Stats</text>
+            <text x="160" y="72" fill="#b8c1d9" font-family="Arial,sans-serif" font-size="15">墨梅MnMei</text>
+            <text x="160" y="122" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">${follower_count}</text>
+            <text x="160" y="145" fill="#9da9c7" font-family="Arial,sans-serif" font-size="13">Followers</text>
+            <text x="420" y="122" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">${video_views}</text>
+            <text x="420" y="145" fill="#9da9c7" font-family="Arial,sans-serif" font-size="13">Video views</text>
+            <circle cx="638" cy="42" r="10" fill="#79d9ff" opacity=".9" />
+            <circle cx="653" cy="42" r="10" fill="#ff83b8" opacity=".9" />
           </svg>
           EOF
 
