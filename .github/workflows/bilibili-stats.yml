@@ -65,8 +65,19 @@ jobs:
           if relation.get("code") != 0:
               raise RuntimeError(f"Bilibili relation API error: {relation}")
 
+          def parse_play(value):
+              if isinstance(value, (int, float)):
+                  return int(value)
+              text = str(value or "0").replace(",", "").strip()
+              multiplier = 1
+              if text.endswith("亿"):
+                  multiplier, text = 100000000, text[:-1]
+              elif text.endswith("万"):
+                  multiplier, text = 10000, text[:-1]
+              return int(float(text or 0) * multiplier)
+
           videos = archive.get("data", {}).get("list", {}).get("vlist", [])
-          views = sum(int(video.get("play", 0) or 0) for video in videos)
+          views = sum(parse_play(video.get("play", 0)) for video in videos)
           with open("bilibili-data.json", "w", encoding="utf-8") as output:
               json.dump({"followers": relation["data"].get("follower", 0), "views": views}, output)
           PY
