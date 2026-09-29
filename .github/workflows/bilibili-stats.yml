@@ -96,7 +96,8 @@ jobs:
 
           avatar_b64="$(curl --fail --silent --show-error --location --retry 3 \
             --user-agent "Mozilla/5.0" \
-            "https://i0.hdslb.com/bfs/face/9d38531eb2b47cf35c08eb75167571ea370e22e8.jpg" | base64 -w 0)"
+            --referer "https://space.bilibili.com/${BILIBILI_UID}" \
+            "https://i0.hdslb.com/bfs/face/9d38531eb2b47cf35c08eb75167571ea370e22e8.jpg@128w_128h_1c_1s.webp" | base64 -w 0)"
           with open("bilibili-data.json", "w", encoding="utf-8") as output:
               json.dump({"followers": relation["data"].get("follower", 0), "views": views}, output)
           PY
@@ -114,7 +115,7 @@ jobs:
               <clipPath id="avatarClip"><circle cx="82" cy="85" r="50" /></clipPath>
             </defs>
             <rect width="680" height="170" rx="14" fill="url(#bg)" />
-            <image href="data:image/jpeg;base64,${avatar_b64}" x="32" y="35" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />
+            <image href="data:image/webp;base64,${avatar_b64}" x="32" y="35" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />
             <circle cx="82" cy="85" r="52" fill="none" stroke="#79d9ff" stroke-width="4" />
             <text x="160" y="42" fill="#79d9ff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Bilibili Stats</text>
             <text x="160" y="72" fill="#b8c1d9" font-family="Arial,sans-serif" font-size="15">墨梅MnMei</text>
