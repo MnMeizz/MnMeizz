@@ -25,6 +25,7 @@ jobs:
 
           python3 - <<'PY'
           import hashlib
+          import base64
           import json
           import os
           import time
@@ -51,7 +52,7 @@ jobs:
           def parse_play(value):
               if isinstance(value, (int, float)):
                   return int(value)
-              text = str(value or "0").replace(",", "").strip()
+              text = str(value or "0").replace(",", "").strip().rstrip("+")
               multiplier = 1
               if text.endswith("亿"):
                   multiplier, text = 100000000, text[:-1]
@@ -59,17 +60,37 @@ jobs:
                   multiplier, text = 10000, text[:-1]
               return int(float(text or 0) * multiplier)
 
-          views = "Unavailable"
+          def format_count(value):
+              value = int(value)
+              if value >= 100000000:
+                  return f"{value / 100000000:.1f}亿"
+              if value >= 10000:
+                  return f"{value / 10000:.1f}万"
+              return str(value)
+
+          views = None
+
+          # This endpoint returns the creator's aggregate video view count.
+          # It works with BILIBILI_SESSDATA and avoids summing only the first
+          # page of uploads.
+          try:
+              upstat = get_json(f"https://api.bilibili.com/x/space/upstat?mid={uid}")
+              archive = upstat.get("data", {}).get("archive", {})
+              if upstat.get("code") == 0 and archive.get("view") is not None:
+                  views = parse_play(archive["view"])
+          except Exception as error:
+              print(f"Bilibili upstat API unavailable: {error}")
+
           try:
               legacy_url = f"https://api.bilibili.com/x/space/arc/search?mid={uid}&pn=1&ps=100&order=pubdate&jsonp=jsonp"
               legacy = get_json(legacy_url)
-              if legacy.get("code") == 0:
+              if views is None and legacy.get("code") == 0:
                   videos = legacy.get("data", {}).get("list", {}).get("vlist", [])
                   views = sum(parse_play(video.get("play", 0)) for video in videos)
           except Exception as error:
               print(f"Legacy Bilibili video API unavailable: {error}")
 
-          if views == "Unavailable":
+          if views is None:
             try:
               nav = get_json("https://api.bilibili.com/x/web-interface/nav")
               img_key = nav["data"]["wbi_img"]["img_url"].rsplit("/", 1)[1].split(".", 1)[0]
@@ -80,30 +101,32 @@ jobs:
               query = urlencode(sorted(params.items()))
               params["w_rid"] = hashlib.md5((query + mixin_key).encode()).hexdigest()
               archive = get_json("https://api.bilibili.com/x/space/wbi/arc/search?" + urlencode(params))
-              if archive.get("code") == 0:
+              if views is None and archive.get("code") == 0:
                   videos = archive.get("data", {}).get("list", {}).get("vlist", [])
                   views = sum(parse_play(video.get("play", 0)) for video in videos)
             except Exception as error:
               print(f"WBI Bilibili video API unavailable: {error}")
 
-          if isinstance(views, int):
-              if views >= 100000000:
-                  views = f"{views / 100000000:.1f}亿"
-              elif views >= 10000:
-                  views = f"{views / 10000:.1f}万"
-              else:
-                  views = str(views)
+          views = format_count(views) if views is not None else "Unavailable"
 
-          avatar_b64="$(curl --fail --silent --show-error --location --retry 3 \
-            --user-agent "Mozilla/5.0" \
-            --referer "https://space.bilibili.com/${BILIBILI_UID}" \
-            "https://i0.hdslb.com/bfs/face/9d38531eb2b47cf35c08eb75167571ea370e22e8.jpg@128w_128h_1c_1s.webp" | base64 -w 0)"
+          # Embed the avatar directly in the SVG. GitHub may block external
+          # image references from SVG files, while a data URI is self-contained.
+          avatar_url = "https://i0.hdslb.com/bfs/face/9d38531eb2b47cf35c08eb75167571ea370e22e8.jpg"
+          avatar_request = Request(avatar_url, headers=headers)
+          with urlopen(avatar_request, timeout=30) as response:
+              avatar_b64 = base64.b64encode(response.read()).decode("ascii")
+
           with open("bilibili-data.json", "w", encoding="utf-8") as output:
-              json.dump({"followers": relation["data"].get("follower", 0), "views": views}, output)
+              json.dump({
+                  "followers": relation["data"].get("follower", 0),
+                  "views": views,
+                  "avatar": avatar_b64,
+              }, output)
           PY
 
           follower_count="$(jq -r '.followers' bilibili-data.json)"
           video_views="$(jq -r '.views' bilibili-data.json)"
+          avatar_b64="$(jq -r '.avatar' bilibili-data.json)"
 
           cat > bilibili-stats.svg <<EOF
           <svg xmlns="http://www.w3.org/2000/svg" width="680" height="170" viewBox="0 0 680 170" role="img" aria-label="Bilibili statistics">
@@ -115,7 +138,7 @@ jobs:
               <clipPath id="avatarClip"><circle cx="82" cy="85" r="50" /></clipPath>
             </defs>
             <rect width="680" height="170" rx="14" fill="url(#bg)" />
-            <image href="data:image/webp;base64,${avatar_b64}" x="32" y="35" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />
+            <image href="data:image/jpeg;base64,${avatar_b64}" x="32" y="35" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />
             <circle cx="82" cy="85" r="52" fill="none" stroke="#79d9ff" stroke-width="4" />
             <text x="160" y="42" fill="#79d9ff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Bilibili Stats</text>
             <text x="160" y="72" fill="#b8c1d9" font-family="Arial,sans-serif" font-size="15">墨梅MnMei</text>
