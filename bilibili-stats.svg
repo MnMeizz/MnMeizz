@@ -8,9 +8,9 @@
   <rect width="520" height="150" rx="14" fill="url(#bg)" />
   <text x="28" y="38" fill="#79d9ff" font-family="Arial,sans-serif" font-size="22" font-weight="700">Bilibili Stats</text>
   <text x="28" y="68" fill="#b8c1d9" font-family="Arial,sans-serif" font-size="15">墨梅MnMei</text>
-  <text x="28" y="112" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">1889</text>
+  <text x="28" y="112" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">1890</text>
   <text x="28" y="134" fill="#9da9c7" font-family="Arial,sans-serif" font-size="13">Followers</text>
-  <text x="285" y="112" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">0</text>
+  <text x="285" y="112" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700">Unavailable</text>
   <text x="285" y="134" fill="#9da9c7" font-family="Arial,sans-serif" font-size="13">Video views</text>
   <circle cx="474" cy="38" r="10" fill="#79d9ff" opacity=".9" />
   <circle cx="489" cy="38" r="10" fill="#ff83b8" opacity=".9" />
