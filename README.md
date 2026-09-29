@@ -6,22 +6,6 @@
 
 <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/tech-stack.svg" alt="Game development and creative tech stack" width="100%" />
 
-<br />
-
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/CSharp.svg" width="52" alt="C#" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/C.svg" width="52" alt="C" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Python.svg" width="52" alt="Python" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Java.svg" width="52" alt="Java" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Unity.svg" width="52" alt="Unity" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/UnrealEngine.svg" width="52" alt="Unreal Engine" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Git.svg" width="52" alt="Git" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Blender.svg" width="52" alt="Blender" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Premiere.svg" width="52" alt="Premiere Pro" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Photoshop.svg" width="52" alt="Photoshop" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/VSCode.svg" width="52" alt="VS Code" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Discord.svg" width="52" alt="Discord" />
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Idea.svg" width="52" alt="JetBrains IDEs" />
-
 <br /><br />
 
 <a href="https://github.com/MnMeizz"><img src="https://img.shields.io/github/followers/MnMeizz?label=Followers&style=flat-square&color=58A6FF" alt="GitHub followers" /></a>
