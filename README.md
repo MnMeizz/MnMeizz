@@ -4,7 +4,7 @@
 
 <br />
 
-<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps,openai&perline=11" alt="Game development and ChatGPT tech stack" />
+<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps,openai,vscode,capcut,discord,idea&perline=15" alt="Game development and creative tech stack" />
 
 <br /><br />
 
@@ -22,15 +22,17 @@
 - 👋 Hi, I'm **MnMeizz**.
 - 🎮 Learning game development with **C#**, **Unity**, and **Unreal Engine**.
 - 🧩 Exploring programming, 3D art, and interactive world-building.
-- 🛠️ Using Blender, Premiere Pro, Photoshop, and Codex in my creative workflow.
+- 🛠️ Using Blender, Premiere Pro, Photoshop, CapCut, and ChatGPT in my creative workflow.
+- 📫 Feel free to explore my repositories and connect with me.
 
     </td>
     <td valign="top" width="48%">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MnMeizz&theme=github_dark" alt="MnMeizz's GitHub Stats" />
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MnMeizz&theme=github_dark" alt="MnMeizz's profile details" />
+      <br />
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MnMeizz&theme=github_dark" alt="MnMeizz's GitHub Stats" />
     </td>
   </tr>
 </table>
-- 📫 Feel free to explore my repositories and connect with me.
 
 ## Contribution activity
 
