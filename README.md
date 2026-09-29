@@ -4,7 +4,7 @@
 
 <br />
 
-<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps,openai,vscode,capcut,discord,idea&perline=15" alt="Game development and creative tech stack" />
+<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps,vscode,discord,idea&perline=13" alt="Game development and creative tech stack" />
 
 <br /><br />
 
@@ -33,6 +33,12 @@
     </td>
   </tr>
 </table>
+
+## 3D contribution activity
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/profile-3d-contrib/profile-night-rainbow.svg" alt="3D GitHub contribution calendar" width="100%" />
+</div>
 
 ## Contribution activity
 
