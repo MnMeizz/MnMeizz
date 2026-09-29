@@ -8,7 +8,7 @@
 
 <br />
 
-<img src="https://img.shields.io/badge/Codex-000000?style=flat-square&logo=openai&logoColor=white" alt="Codex" />
+<img src="https://img.shields.io/badge/Codex-000000?style=flat-square&logo=chatgpt&logoColor=white" alt="Codex powered by ChatGPT" />
 
 <br /><br />
 
@@ -19,10 +19,21 @@
 
 ## About me
 
+<table>
+  <tr>
+    <td valign="top" width="52%">
+
 - 👋 Hi, I'm **MnMeizz**.
 - 🎮 Learning game development with **C#**, **Unity**, and **Unreal Engine**.
 - 🧩 Exploring programming, 3D art, and interactive world-building.
 - 🛠️ Using Blender, Premiere Pro, Photoshop, and Codex in my creative workflow.
+
+    </td>
+    <td valign="top" width="48%">
+      <img src="https://github-readme-stats.vercel.app/api?username=MnMeizz&show_icons=true&theme=transparent&rank_icon=percentile&custom_title=MnMeizz%27s%20GitHub%20Stats" alt="MnMeizz's GitHub Stats" />
+    </td>
+  </tr>
+</table>
 - 📫 Feel free to explore my repositories and connect with me.
 
 ## Contribution activity
