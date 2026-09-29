@@ -4,11 +4,7 @@
 
 <br />
 
-<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps&perline=10" alt="Game development tech stack" />
-
-<br />
-
-<img src="https://img.shields.io/badge/Codex-000000?style=flat-square&logo=chatgpt&logoColor=white" alt="Codex powered by ChatGPT" />
+<img src="https://skillicons.dev/icons?i=cs,c,python,java,unity,unreal,git,blender,pr,ps,openai&perline=11" alt="Game development and ChatGPT tech stack" />
 
 <br /><br />
 
