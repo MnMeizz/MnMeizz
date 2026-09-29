@@ -37,15 +37,20 @@
 ## Bilibili
 
 <div align="center">
-  <a href="https://space.bilibili.com/282601111">
-    <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/bilibili-stats.svg" alt="MnMeizz Bilibili statistics" width="520" />
-  </a>
-</div>
-
-## 3D contribution activity
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/profile-3d-contrib/profile-night-rainbow.svg" alt="3D GitHub contribution calendar" width="100%" />
+  <table>
+    <tr>
+      <td valign="middle" width="150">
+        <a href="https://space.bilibili.com/282601111">
+          <img src="https://i0.hdslb.com/bfs/face/9d38531eb2b47cf35c08eb75167571ea370e22e8.jpg@128w_128h_1c_1s.webp" alt="MnMeizz Bilibili avatar" width="128" height="128" style="border-radius:16px;border:3px solid #79d9ff;" />
+        </a>
+      </td>
+      <td valign="middle">
+        <a href="https://space.bilibili.com/282601111">
+          <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/bilibili-stats.svg" alt="MnMeizz Bilibili statistics" width="520" />
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ## Contribution activity
