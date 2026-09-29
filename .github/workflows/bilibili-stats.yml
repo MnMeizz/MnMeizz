@@ -22,20 +22,57 @@ jobs:
         run: |
           set -euo pipefail
 
-          relation_json="$(curl --fail --silent --show-error --location \
-            --retry 3 --user-agent "Mozilla/5.0" \
-            --referer "https://space.bilibili.com/${BILIBILI_UID}" \
-            "https://api.bilibili.com/x/relation/stat?vmid=${BILIBILI_UID}")"
-          archive_json="$(curl --fail --silent --show-error --location \
-            --retry 3 --user-agent "Mozilla/5.0" \
-            --referer "https://space.bilibili.com/${BILIBILI_UID}" \
-            "https://api.bilibili.com/x/space/arc/search?mid=${BILIBILI_UID}&pn=1&ps=100&order=pubdate&jsonp=jsonp")"
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import time
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
 
-          follower_count="$(jq -r '.data.follower // 0' <<< "$relation_json")"
-          video_views="$(jq '[.data.list.vlist[]?.play | tonumber] | add // 0' <<< "$archive_json")"
+          uid = os.environ["BILIBILI_UID"]
+          headers = {
+              "User-Agent": "Mozilla/5.0",
+              "Referer": f"https://space.bilibili.com/{uid}",
+          }
 
-          jq -e '.code == 0' <<< "$relation_json" >/dev/null
-          jq -e '.code == 0' <<< "$archive_json" >/dev/null
+          def get_json(url):
+              request = Request(url, headers=headers)
+              with urlopen(request, timeout=30) as response:
+                  return json.load(response)
+
+          nav = get_json("https://api.bilibili.com/x/web-interface/nav")
+          img_key = nav["data"]["wbi_img"]["img_url"].rsplit("/", 1)[1].split(".", 1)[0]
+          sub_key = nav["data"]["wbi_img"]["sub_url"].rsplit("/", 1)[1].split(".", 1)[0]
+          mixin_table = [46, 33, 38, 15, 53, 42, 29, 44, 40, 2, 49, 20, 56, 8, 23, 24, 9, 52, 32, 13, 5, 50, 19, 26, 34, 3, 27, 43, 21, 10, 28, 55, 35, 4, 45, 6, 25, 16, 18, 22, 17, 39, 7, 31, 1, 37, 30, 14, 12, 36, 51, 11, 48, 0, 41, 47, 54]
+          mixin_key = "".join((img_key + sub_key)[i] for i in mixin_table)[:32]
+
+          params = {
+              "mid": uid,
+              "ps": 100,
+              "pn": 1,
+              "order": "pubdate",
+              "platform": "web",
+              "web_location": 1550101,
+              "wts": int(time.time()),
+          }
+          query = urlencode(sorted(params.items()))
+          params["w_rid"] = hashlib.md5((query + mixin_key).encode()).hexdigest()
+          archive = get_json("https://api.bilibili.com/x/space/wbi/arc/search?" + urlencode(params))
+          relation = get_json(f"https://api.bilibili.com/x/relation/stat?vmid={uid}")
+          if archive.get("code") != 0:
+              raise RuntimeError(f"Bilibili archive API error: {archive}")
+          if relation.get("code") != 0:
+              raise RuntimeError(f"Bilibili relation API error: {relation}")
+
+          videos = archive.get("data", {}).get("list", {}).get("vlist", [])
+          views = sum(int(video.get("play", 0) or 0) for video in videos)
+          with open("bilibili-data.json", "w", encoding="utf-8") as output:
+              json.dump({"followers": relation["data"].get("follower", 0), "views": views}, output)
+          PY
+
+          follower_count="$(jq -r '.followers' bilibili-data.json)"
+          video_views="$(jq -r '.views' bilibili-data.json)"
 
           cat > bilibili-stats.svg <<EOF
           <svg xmlns="http://www.w3.org/2000/svg" width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="Bilibili statistics">
