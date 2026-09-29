@@ -34,6 +34,14 @@
   </tr>
 </table>
 
+## Bilibili
+
+<div align="center">
+  <a href="https://space.bilibili.com/282601111">
+    <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/bilibili-stats.svg" alt="MnMeizz Bilibili statistics" width="520" />
+  </a>
+</div>
+
 ## 3D contribution activity
 
 <div align="center">
