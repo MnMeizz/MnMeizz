@@ -30,7 +30,7 @@
 
     </td>
     <td valign="top" width="48%">
-      <img src="https://github-readme-stats.vercel.app/api?username=MnMeizz&show_icons=true&theme=transparent&rank_icon=percentile&custom_title=MnMeizz%27s%20GitHub%20Stats" alt="MnMeizz's GitHub Stats" />
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MnMeizz&theme=github_dark" alt="MnMeizz's GitHub Stats" />
     </td>
   </tr>
 </table>
