@@ -25,15 +25,15 @@ jobs:
           relation_json="$(curl --fail --silent --show-error --location \
             --user-agent "Mozilla/5.0" \
             "https://api.bilibili.com/x/relation/stat?vmid=${BILIBILI_UID}")"
-          upstat_json="$(curl --fail --silent --show-error --location \
+          archive_json="$(curl --fail --silent --show-error --location \
             --user-agent "Mozilla/5.0" \
-            "https://api.bilibili.com/x/space/upstat?mid=${BILIBILI_UID}")"
+            "https://api.bilibili.com/x/space/arc/search?mid=${BILIBILI_UID}&pn=1&ps=100&order=pubdate&jsonp=jsonp")"
 
           follower_count="$(jq -r '.data.follower // 0' <<< "$relation_json")"
-          video_views="$(jq -r '.data.archive.view // 0' <<< "$upstat_json")"
+          video_views="$(jq '[.data.list.vlist[]?.play | tonumber] | add // 0' <<< "$archive_json")"
 
           jq -e '.code == 0' <<< "$relation_json" >/dev/null
-          jq -e '.code == 0' <<< "$upstat_json" >/dev/null
+          jq -e '.code == 0' <<< "$archive_json" >/dev/null
 
           cat > bilibili-stats.svg <<EOF
           <svg xmlns="http://www.w3.org/2000/svg" width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="Bilibili statistics">
