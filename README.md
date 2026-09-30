@@ -17,10 +17,6 @@ Building playable worlds with code, systems, and visual craft.</p>
 
 <br />
 
-<table>
-  <tr>
-    <td valign="top" width="52%">
-
 ## About
 
 I’m MnMeizz, learning game development through small systems, interactive worlds, and visual experiments.
@@ -30,18 +26,11 @@ I’m MnMeizz, learning game development through small systems, interactive worl
 - Using Git, VS Code, JetBrains tools, Premiere Pro, and Photoshop in the workflow.
 - Open to learning, making, and connecting with other creators.
 
-    </td>
-    <td valign="top" width="48%">
-
 ## GitHub snapshot
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/github-stats.svg" alt="GitHub statistics for MnMeizz" width="100%" />
 </div>
-
-    </td>
-  </tr>
-</table>
 
 <br />
 
