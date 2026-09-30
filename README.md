@@ -17,20 +17,26 @@ Building playable worlds with code, systems, and visual craft.</p>
 
 <br />
 
-## About
-
-I’m MnMeizz, learning game development through small systems, interactive worlds, and visual experiments.
-
-- Learning with **C#**, **C**, **Python**, **Java**, **Unity**, and **Unreal Engine**.
-- Exploring gameplay logic, 3D art, and world-building with **Blender**.
-- Using Git, VS Code, JetBrains tools, Premiere Pro, and Photoshop in the workflow.
-- Open to learning, making, and connecting with other creators.
-
-## GitHub snapshot
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/github-stats.svg" alt="GitHub statistics for MnMeizz" width="100%" />
-</div>
+<table>
+  <tr>
+    <td valign="top" width="52%">
+      <h2>About</h2>
+      <p>I’m MnMeizz, learning game development through small systems, interactive worlds, and visual experiments.</p>
+      <ul>
+        <li>Learning with <strong>C#</strong>, <strong>C</strong>, <strong>Python</strong>, <strong>Java</strong>, <strong>Unity</strong>, and <strong>Unreal Engine</strong>.</li>
+        <li>Exploring gameplay logic, 3D art, and world-building with <strong>Blender</strong>.</li>
+        <li>Using Git, VS Code, JetBrains tools, Premiere Pro, and Photoshop in the workflow.</li>
+        <li>Open to learning, making, and connecting with other creators.</li>
+      </ul>
+    </td>
+    <td valign="top" width="48%">
+      <h2>GitHub snapshot</h2>
+      <div align="center">
+        <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/github-stats.svg" alt="GitHub statistics for MnMeizz" width="100%" />
+      </div>
+    </td>
+  </tr>
+</table>
 
 <br />
 
