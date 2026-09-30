@@ -4,8 +4,8 @@
       <stop stop-color="#071326"/><stop offset="1" stop-color="#17294a"/>
     </linearGradient>
   </defs>
-  <rect width="680" height="190" rx="16" fill="url(#bg)"/>
-  <path d="M28 52h624M28 150h624" stroke="#234d70" stroke-width="1"/>
+  <rect width="680" height="190" rx="16" fill="url(#bg)" />
+  <path d="M28 52h624M28 150h624" stroke="#234d70" stroke-width="1" />
   <text x="32" y="36" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="20" font-weight="700">GitHub snapshot</text>
   <text x="32" y="78" fill="#56d8ff" font-family="Arial,sans-serif" font-size="30" font-weight="700">7</text>
   <text x="32" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Repositories</text>
