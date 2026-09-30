@@ -20,6 +20,7 @@ jobs:
         env:
           BILIBILI_UID: "282601111"
           BILIBILI_SESSDATA: ${{ secrets.BILIBILI_SESSDATA }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
@@ -120,11 +121,35 @@ jobs:
                   "views": views,
                   "avatar": avatar_b64,
               }, output)
+
+          github_headers = {
+              "Accept": "application/vnd.github+json",
+              "User-Agent": "MnMeizz-profile-stats",
+          }
+          if os.environ.get("GITHUB_TOKEN"):
+              github_headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
+
+          def get_github_json(url):
+              request = Request(url, headers=github_headers)
+              with urlopen(request, timeout=30) as response:
+                  return json.load(response)
+
+          github_user = get_github_json("https://api.github.com/users/" + os.environ.get("GITHUB_REPOSITORY_OWNER", "MnMeizz"))
+          github_repos = get_github_json("https://api.github.com/users/" + os.environ.get("GITHUB_REPOSITORY_OWNER", "MnMeizz") + "/repos?per_page=100&sort=updated")
+          with open("github-stats-data.json", "w", encoding="utf-8") as output:
+              json.dump({
+                  "repositories": github_user.get("public_repos", 0),
+                  "followers": github_user.get("followers", 0),
+                  "stars": sum(repo.get("stargazers_count", 0) for repo in github_repos),
+              }, output)
           PY
 
           follower_count="$(jq -r '.followers' bilibili-data.json)"
           video_views="$(jq -r '.views' bilibili-data.json)"
           avatar_b64="$(jq -r '.avatar' bilibili-data.json)"
+          github_repositories="$(jq -r '.repositories' github-stats-data.json)"
+          github_followers="$(jq -r '.followers' github-stats-data.json)"
+          github_stars="$(jq -r '.stars' github-stats-data.json)"
 
           cat > bilibili-stats.svg <<EOF
           <svg xmlns="http://www.w3.org/2000/svg" width="680" height="170" viewBox="0 0 680 170" role="img" aria-label="Bilibili statistics">
@@ -149,11 +174,32 @@ jobs:
           </svg>
           EOF
 
+          cat > github-stats.svg <<EOF
+          <svg xmlns="http://www.w3.org/2000/svg" width="680" height="190" viewBox="0 0 680 190" role="img" aria-label="GitHub statistics for MnMeizz">
+            <defs>
+              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#071326"/><stop offset="1" stop-color="#17294a"/>
+              </linearGradient>
+            </defs>
+            <rect width="680" height="190" rx="16" fill="url(#bg)" />
+            <path d="M28 52h624M28 150h624" stroke="#234d70" stroke-width="1" />
+            <text x="32" y="36" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="20" font-weight="700">GitHub snapshot</text>
+            <text x="32" y="78" fill="#56d8ff" font-family="Arial,sans-serif" font-size="30" font-weight="700">${github_repositories}</text>
+            <text x="32" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Repositories</text>
+            <text x="248" y="78" fill="#56d8ff" font-family="Arial,sans-serif" font-size="30" font-weight="700">${github_followers}</text>
+            <text x="248" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Followers</text>
+            <text x="464" y="78" fill="#ffb52e" font-family="Arial,sans-serif" font-size="30" font-weight="700">${github_stars}</text>
+            <text x="464" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Stars received</text>
+            <circle cx="620" cy="36" r="7" fill="#56d8ff"/><circle cx="642" cy="36" r="7" fill="#ffb52e"/>
+            <text x="32" y="174" fill="#668baa" font-family="Arial,sans-serif" font-size="12">Updated automatically from the GitHub API</text>
+          </svg>
+          EOF
+
       - name: Commit updated card
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add bilibili-stats.svg
+          git add bilibili-stats.svg github-stats.svg
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

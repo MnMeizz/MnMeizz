@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="190" viewBox="0 0 680 190" role="img" aria-label="GitHub statistics for MnMeizz">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#071326"/><stop offset="1" stop-color="#17294a"/>
+    </linearGradient>
+  </defs>
+  <rect width="680" height="190" rx="16" fill="url(#bg)"/>
+  <path d="M28 52h624M28 150h624" stroke="#234d70" stroke-width="1"/>
+  <text x="32" y="36" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="20" font-weight="700">GitHub snapshot</text>
+  <text x="32" y="78" fill="#56d8ff" font-family="Arial,sans-serif" font-size="30" font-weight="700">7</text>
+  <text x="32" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Repositories</text>
+  <text x="248" y="78" fill="#56d8ff" font-family="Arial,sans-serif" font-size="30" font-weight="700">5</text>
+  <text x="248" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Followers</text>
+  <text x="464" y="78" fill="#ffb52e" font-family="Arial,sans-serif" font-size="30" font-weight="700">3</text>
+  <text x="464" y="101" fill="#9db7d1" font-family="Arial,sans-serif" font-size="13">Stars received</text>
+  <circle cx="620" cy="36" r="7" fill="#56d8ff"/><circle cx="642" cy="36" r="7" fill="#ffb52e"/>
+  <text x="32" y="174" fill="#668baa" font-family="Arial,sans-serif" font-size="12">Updated automatically from the GitHub API</text>
+</svg>
