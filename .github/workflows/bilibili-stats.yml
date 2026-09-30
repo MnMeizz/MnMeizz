@@ -162,12 +162,14 @@ jobs:
               <clipPath id="danmakuClip"><rect x="18" y="16" width="644" height="138" rx="12" /></clipPath>
             </defs>
             <rect width="680" height="170" rx="14" fill="url(#bg)" />
-            <g clip-path="url(#danmakuClip)" opacity=".14" fill="#d9f4ff" font-family="Arial,sans-serif" font-size="11" pointer-events="none">
-              <text x="720" y="30">playtest · Unity · shader<animate attributeName="x" from="720" to="-420" dur="18s" repeatCount="indefinite" /></text>
-              <text x="500" y="58" fill="#f7d9ff">world loading · C# · build<animate attributeName="x" from="500" to="-560" dur="22s" begin="-7s" repeatCount="indefinite" /></text>
-              <text x="820" y="88">弹幕 · playtest · game dev<animate attributeName="x" from="820" to="-520" dur="25s" begin="-13s" repeatCount="indefinite" /></text>
-              <text x="620" y="118" fill="#bfe7ff">Unity · C · Python · level design<animate attributeName="x" from="620" to="-620" dur="20s" begin="-4s" repeatCount="indefinite" /></text>
-              <text x="900" y="146" fill="#f7d9ff">loading stats · bilibili · creative coding<animate attributeName="x" from="900" to="-700" dur="28s" begin="-18s" repeatCount="indefinite" /></text>
+            <g clip-path="url(#danmakuClip)" opacity=".14" fill="#d9f4ff" font-family="Arial,sans-serif" pointer-events="none">
+              <text x="720" y="27" font-size="12" opacity="0">(｡•̀ᴗ-)✧ · Unity · (๑•̀ㅂ•́)و✧<animate attributeName="x" from="720" to="-420" dur="19s" begin="0s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="19s" begin="0s" repeatCount="indefinite" /></text>
+              <text x="520" y="49" font-size="9" fill="#f7d9ff" opacity="0">(づ｡◕‿‿◕｡)づ · playtest<animate attributeName="x" from="520" to="-360" dur="24s" begin="3.5s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="24s" begin="3.5s" repeatCount="indefinite" /></text>
+              <text x="820" y="72" font-size="14" opacity="0">(≧▽≦) · C# · shader<animate attributeName="x" from="820" to="-330" dur="27s" begin="7s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="27s" begin="7s" repeatCount="indefinite" /></text>
+              <text x="620" y="95" font-size="10" fill="#bfe7ff" opacity="0">(๑˃̵ᴗ˂̵)و · loading...<animate attributeName="x" from="620" to="-300" dur="21s" begin="10.5s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="21s" begin="10.5s" repeatCount="indefinite" /></text>
+              <text x="920" y="118" font-size="8" fill="#f7d9ff" opacity="0">(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ · game dev<animate attributeName="x" from="920" to="-390" dur="30s" begin="14s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="30s" begin="14s" repeatCount="indefinite" /></text>
+              <text x="740" y="137" font-size="13" opacity="0">(｡•ㅅ•｡) · bilibili<animate attributeName="x" from="740" to="-280" dur="23s" begin="17.5s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="23s" begin="17.5s" repeatCount="indefinite" /></text>
+              <text x="480" y="151" font-size="11" fill="#bfe7ff" opacity="0">(ง •̀_•́)ง · build OK<animate attributeName="x" from="480" to="-300" dur="26s" begin="21s" repeatCount="indefinite" /><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.88;1" dur="26s" begin="21s" repeatCount="indefinite" /></text>
             </g>
             <image href="data:image/jpeg;base64,${avatar_b64}" x="32" y="35" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />
             <circle cx="82" cy="85" r="52" fill="none" stroke="#79d9ff" stroke-width="4" />
