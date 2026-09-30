@@ -11,6 +11,10 @@ Building playable worlds with code, systems, and visual craft.</p>
   <a href="https://space.bilibili.com/282601111">Bilibili</a>
 </p>
 
+<p>
+  <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/assets/season5-don-quixote.png" alt="Season 5 Don Quixote artwork" width="680" />
+</p>
+
 <img src="https://raw.githubusercontent.com/MnMeizz/MnMeizz/main/tech-stack.svg" alt="Game development technology stack" width="100%" />
 
 </div>
